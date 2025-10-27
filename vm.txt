@@ -1,0 +1,27 @@
+--> DOCU: https://cloud.google.com/sdk/gcloud/reference/compute/instances/create
+
+CREAR INSTANCIAS DE DEBIAN
+
+gcloud compute instances create dev-k8s-app01 dev-k8s-app02 dev-k8s-app03 \
+--zone=us-central1-a \
+--machine-type=e2-micro \
+--boot-disk-size=20GB
+
+
+CREAR INSTANCIAS DE RED HAT 9
+gcloud compute instances create dev-k8s-app01 dev-k8s-app02 dev-k8s-app03 \
+--zone=us-central1-a \
+--machine-type=e2-micro \
+--image-family=rhel-9 \
+--image-project=rhel-cloud \
+--boot-disk-size=20GB
+
+
+--image-family=rhel-8
+--image-project=rhel-cloud
+--zone=us-central1-a
+--machine-type=e2-micro
+--boot-disk-size=10GB
+
+
+gcloud compute instances delete dev-k8s-app01 dev-k8s-app02 dev-k8s-app03 --zone=us-central1-a 
