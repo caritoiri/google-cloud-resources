@@ -1,0 +1,21 @@
+# create a second service account
+
+gcloud iam service-accounts create test-service-account2 --display-name "test-service-account2"
+
+# grant the service account the viewer role
+
+gcloud projects add-iam-policy-binding $GOOGLE_CLOUD_PROJECT \
+--member serviceAccount:test-service-account2@${GOOGLE_CLOUD_PROJECT}.iam.gserviceaccount.com \
+--role roles/viewer
+
+LOGUEAR CON EL credentials.json DESCARGADO EN "THREE DOTS KEY" DE IAM
+gcloud auth activate-service-account --key-file credentials.json
+
+VERIFICA QUIEN EJECUTA LOS COMANDO EN LA SHELL Y MUESTRA LA LISTA DE USUARIOS
+gcloud auth list
+
+CAMBIAR DE SERVICE ACCOUNT EN LA SHELL
+gcloud config set account [USERNAME]
+
+CONVERTIR EL BUCKET ACCESIBLE PARA TODOS
+gsutil iam ch allUsers:objectViewer gs://$MY_BUCKET_NAME_1

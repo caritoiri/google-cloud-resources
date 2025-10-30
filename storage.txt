@@ -1,0 +1,19 @@
+CREAR A STORAGE IN TO CLOUD STORAGE
+
+gcloud storage buckets create gs://$MY_BUCKET_NAME_2 --location=us-central1
+
+COPIAR DE UN REPO PUBLICO
+gcloud storage cp gs://cloud-training/ak8s/cat.jpg cat.jpg
+
+COPIAR DE MI HOST AL BUCKET
+gcloud storage cp cat.jpg gs://$MY_BUCKET_NAME_1
+
+COPIAR ENTRE BUCCKETS
+gcloud storage cp gs://$MY_BUCKET_NAME_1/cat.jpg gs://$MY_BUCKET_NAME_2/cat.jpg
+
+VER LA POLITICA DE CONFIGURACON DEL BUCKET
+gsutil acl get gs://$MY_BUCKET_NAME_1/cat.jpg  > acl.txt
+cat acl.txt
+
+CONCEDER PERMISOS COMO PRIVADO AL BUCKET
+gsutil acl set private gs://$MY_BUCKET_NAME_1/cat.jpg

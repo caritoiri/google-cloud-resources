@@ -16,6 +16,13 @@ gcloud compute instances create dev-k8s-app01 dev-k8s-app02 dev-k8s-app03 \
 --image-project=rhel-cloud \
 --boot-disk-size=20GB
 
+CREAR INSTANCIA DE DEBIAN
+gcloud compute instances create $MY_VMNAME \
+--machine-type "e2-standard-2" \
+--image-project "debian-cloud" \
+--image-family "debian-11" \
+--subnet "default"
+
 
 --image-family=rhel-8
 --image-project=rhel-cloud
@@ -23,5 +30,25 @@ gcloud compute instances create dev-k8s-app01 dev-k8s-app02 dev-k8s-app03 \
 --machine-type=e2-micro
 --boot-disk-size=10GB
 
-
+BORRAR INSTANCIAS
 gcloud compute instances delete dev-k8s-app01 dev-k8s-app02 dev-k8s-app03 --zone=us-central1-a 
+
+DETALLES DE MACHINE TYPES
+shared
+  - e2-medium
+    1-2 vCPU 4GB Memory
+  - e2-micro
+    0.25-2 vCPU 1GB Memory
+  - e2-small
+    0.5-2 vCPU 2GB Memory
+
+standard
+  - e2-standard-2
+    2 vCPU (1 core) 8GB Memory
+  - e2-standard-4
+    4 vCPU (2 core) 16GB Memory
+  - e2-standard-8
+    8 vCPU (4 core) 32GB Memory
+
+
+gcloud compute zones list | grep $MY_REGION
